@@ -1,0 +1,18 @@
+spring:
+  rabbitmq:
+    username: tpqoscfg
+    password: 7zxP-comqDisJ83uS2EXW-38RHhNIwyB
+    host: dingo-01.rmq.cloudamqp.com
+    virtual-host: tpqoscfg
+
+  datasource:
+    url: jdbc:sqlite:../rabbit-producer/db.sqlite
+    driver-class-name: org.sqlite.JDBC
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    show-sql: true
