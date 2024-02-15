@@ -41,4 +41,14 @@ public class ProducerController {
     ) {
         return service.getJobStatus(jobId);
     }
+
+    @PostMapping("/topic")
+    public void topic(
+            @RequestParam("topic")
+            String topic,
+            @RequestParam("message")
+            String message
+    ) {
+        service.sendTopic(topic, message);
+    }
 }

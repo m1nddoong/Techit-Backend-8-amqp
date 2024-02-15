@@ -2,6 +2,7 @@ package com.example.rabbitproducer.config;
 
 
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -15,5 +16,10 @@ public class ProducerConfig {
                 false,
                 true
         );
+    }
+
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange("boot.topic");
     }
 }

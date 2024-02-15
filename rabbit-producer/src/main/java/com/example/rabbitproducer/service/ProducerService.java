@@ -11,6 +11,7 @@ import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,15 @@ public class ProducerService {
                 jobQueue.getName(), message
         );
         log.info("sent message: {}", message);
+    }
+
+    private final TopicExchange topicExchange;
+
+    public void sendTopic(String topic, String message) {
+        rabbitTemplate.convertAndSend(
+                topicExchange.getName(),
+                topic,
+                message
+        );
     }
 }
